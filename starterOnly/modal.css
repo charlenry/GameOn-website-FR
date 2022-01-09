@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+ /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -127,6 +127,7 @@ main {
   cursor: pointer;
 }
 
+
 .modal-btn:hover {
   background: #3876ac;
 }
@@ -170,9 +171,10 @@ main {
 }
 
 .content {
-  margin: 5% auto;
-  width: 100%;
+  margin: 3% auto;
+  width: 95%;
   max-width: 500px;
+  height: 746px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -187,6 +189,52 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
+
+/*------- modal thanks -------*/
+
+.bground-thanks {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+.content-thanks {
+  margin: 3% auto;
+  width: 95%;
+  max-width: 500px;
+  height: 746px;
+ /* animation-name: modalopen; */
+ /* animation-duration: var(--modal-duration); */
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.thanks-body {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
+
+.text-thanks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+  height: 600px;
+}
+
+/*------- fin modal thanks -------*/
 
 label {
   font-family: var(--font-default);
@@ -213,7 +261,7 @@ input {
   font-size: 0.4em;
   color: #e54858;
   display: block;
-  margin-top: 7px;
+  margin-top: 4px;
   margin-bottom: 7px;
   text-align: right;
   line-height: 0.3;
@@ -322,6 +370,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
+.btn-close-thanks,
 .btn-signup {
   background: #fe142f;
   display: block;
@@ -403,6 +452,7 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 16px;
+  white-space: nowrap;
 }
 .hero-section {
   min-height: 93vh;
@@ -515,6 +565,16 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+}
+
+.error{
+  font-size: 16px;
+  color: #D8000C;
+  background-color: #FFBABA;
+  display: block;
+  width: 100%;
+  visibility: hidden;
+  z-index: 2;
 }
 
 @keyframes modalopen {
