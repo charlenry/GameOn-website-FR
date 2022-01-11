@@ -90,11 +90,12 @@ patternNumber = /^\d{1,2}$/g;
 //  firstName.setCustomValidity("Gestion des messages d'erreur");
 
 firstName.addEventListener("input", function() {
-  if (firstName.value == "" || firstName.value.length < 2) {  //if empty string or less than 2 characters
+  if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) {  //if empty string or characters are between 2 and 30
     errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom.";
+    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
   //  firstName.setCustomValidity("Veuillez entrer au moins 2 caractères pour le champ du prénom.");
-    firstName.focus(); 
+    firstName.focus();
+    return false;
   }  else {
     errorMessage.style.visibility = "hidden";  
     errorMessage.innerHTML = ""; 
@@ -102,16 +103,18 @@ firstName.addEventListener("input", function() {
 });
 
 firstName.addEventListener("blur", function() {
-  if (firstName.value == "" || firstName.value.length < 2) {  //if empty string or less than 2 characters
+  if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) { //if empty string or characters are between 2 and 30
     errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom.";
-    firstName.focus(); 
+    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
+    firstName.focus();
+    return false;
   }
   
   if (!patternText.test(firstName.value)) {  //if the user types a wrong character
     errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et espaces sont autorisés.";
+    errorMessage.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
     firstName.focus(); 
+    return false;
   } 
   
   if (!(firstName.value == "" || firstName.value.length < 2) && patternText.test(firstName.value)) {
@@ -124,15 +127,15 @@ firstName.addEventListener("blur", function() {
 
 
 submitBtn.addEventListener("click", function(e) { 
-  if (firstName.value == "" || firstName.value.length < 2) { //if empty string or less than 2 characters
+  if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) { //if empty string or characters are between 2 and 30
     errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom.";
+    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
     firstName.focus();
     e.preventDefault();
   } else if (!patternText.test(firstName.value)) {  //if the user types a wrong character
     errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et espaces sont autorisés.";
-    firstName.focus(); 
+    errorMessage.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
+    firstName.focus();
     e.preventDefault();
   } else {  //display the modal thanks
     console.log(patternText.test(firstName.value));
