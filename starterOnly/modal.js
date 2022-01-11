@@ -148,9 +148,9 @@ submitBtn.addEventListener("click", function(e) {
 });
 
 function validateForm() {
-  let prenom = firstName.value;
-  let nom = lastName.value;
-  let adrEmail = email.value;
+  const prenom = firstName.value;
+  const nom = lastName.value;
+  const adrEmail = email.value;
   console.log(prenom);
   console.log(nom);
   console.log(adrEmail);

@@ -72,6 +72,7 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  maxlength="31"
                   
                 />
                 <span class="error" id="errorname"></span>
@@ -85,7 +86,7 @@
                   id="last"
                   name="last"
                   minlength="2"
-                  
+                  maxlength="31"
                 /><br>
               </div>
               <div
@@ -96,6 +97,7 @@
                   type="email"
                   id="email"
                   name="email"
+                  maxlength="81"
                   
                 /><br>
               </div>
@@ -112,10 +114,10 @@
               </div>
               <div
                 class="formData">
-                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity" class="text-label">À combien de tournois GameOn avez-vous déjà participé&nbsp;?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+              <p class="text-label">A quel tournoi souhaitez-vous participer cette année&nbsp;?</p> <!-- Ajout d'espace insécable -->
               <div
                 class="formData">
                 <input
@@ -218,11 +220,12 @@
         </div>
       </div>
       
+      <!-- Ajout du modal de remerciement -->
       <div class="bground-thanks">
         <div class="content-thanks">
           <span class="close" id="cross-close-thanks"></span>
           <div class="thanks-body">
-            <p class="text-thanks">Merci ! <br> Nous avons bien reçu votre réservation.</p>
+            <p class="text-thanks">Merci ! <br> Votre réservation a été reçue.</p>
           </div>
             <input
               class="button btn-close-thanks"
