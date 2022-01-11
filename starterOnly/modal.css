@@ -209,8 +209,8 @@ main {
   width: 95%;
   max-width: 500px;
   height: 746px;
- /* animation-name: modalopen; */
- /* animation-duration: var(--modal-duration); */
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
   overflow: hidden;
@@ -255,6 +255,10 @@ input {
   border-radius: 8px;
   font-size: 20px;
   height: 48px;
+}
+
+.formData {
+  position: relative;
 }
 .formData[data-error]::after {
   content: attr(data-error);
@@ -567,14 +571,19 @@ footer {
   }
 }
 
-.error{
-  font-size: 16px;
+.error {
+  font-size: 14px;
+/*  word-spacing: 0px;*/
+  line-height: 1.1;
   color: #D8000C;
   background-color: #FFBABA;
   display: block;
+  padding: 3px 5px;
   width: 100%;
   visibility: hidden;
-  z-index: 2;
+  position: absolute;
+  border-radius: 3px; 
+  z-index: 1;
 }
 
 @keyframes modalopen {
