@@ -77,7 +77,9 @@ const chicago = document.getElementById("location4").checked;
 const boston = document.getElementById("location5").checked;
 const porland = document.getElementById("location6").checked;
 let checkBox = document.getElementById("checkbox1");
-let errorMessage = document.getElementById("errorname");
+let errorFirstName = document.getElementById("error-fname");
+let errorLastName = document.getElementById("error-lname");
+let errorEmail = document.getElementById("error-email");
 
 /* Caractères unicode: À, É, Ä, Ç, È, É, Ê, Ë, Î, Ï, Ô, Ö, Ù, Û, Ü, à, á, â, ä, æ, ç, è, é, ê, ë, ï, ô, ö, ù, û */
 /* unicodeCars = \u00c0-\u00c2\u00c4\u00c6-\u00cf\u00d4\u00d6\u00d9-\u00dc\u00e0-\u00f6\u00f9-\u00fc; */
@@ -89,56 +91,124 @@ patternNumber = /^\d{1,2}$/g;
 
 //  firstName.setCustomValidity("Gestion des messages d'erreur");
 
+/*** Controls the inputs in the first name field in real time ***/
 firstName.addEventListener("input", function() {
   if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) {  //if empty string or characters are between 2 and 30
-    errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
-  //  firstName.setCustomValidity("Veuillez entrer au moins 2 caractères pour le champ du prénom.");
+    errorFirstName.style.visibility = "visible";  
+    errorFirstName.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
     firstName.focus();
     return false;
   }  else {
-    errorMessage.style.visibility = "hidden";  
-    errorMessage.innerHTML = ""; 
+    errorFirstName.style.visibility = "hidden";  
+    errorFirstName.innerHTML = ""; 
   }
 });
 
+/*** Controls the inputs in the first name field when focus out ***/
 firstName.addEventListener("blur", function() {
   if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) { //if empty string or characters are between 2 and 30
-    errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
+    errorFirstName.style.visibility = "visible";  
+    errorFirstName.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
     firstName.focus();
     return false;
   }
   
   if (!patternText.test(firstName.value)) {  //if the user types a wrong character
-    errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
+    errorFirstName.style.visibility = "visible";  
+    errorFirstName.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
     firstName.focus(); 
     return false;
   } 
   
   if (!(firstName.value == "" || firstName.value.length < 2) && patternText.test(firstName.value)) {
-    console.log("its ok: " + firstName.value);
-    console.log(patternText.test(firstName.value));
-    errorMessage.style.visibility = "hidden";  
-    errorMessage.innerHTML = "";   //cancel error message
+    errorFirstName.style.visibility = "hidden";  
+    errorFirstName.innerHTML = "";   //cancel error message
   }
 });
 
 
+/*** Controls the inputs in the last name field in real time ***/
+lastName.addEventListener("input", function() {
+  if (lastName.value == "" || lastName.value.length < 2 || lastName.value.length > 30) {  //if empty string or characters are not between 2 and 30
+    errorLastName.style.visibility = "visible";  
+    errorLastName.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du nom et jusqu'à 30 caractères.";
+    lastName.focus();
+    return false;
+  } else {
+    errorLastName.style.visibility = "hidden";  
+    errorLastName.innerHTML = ""; 
+  }
+});
+
+/*** Controls the inputs in the last name field when focus out ***/
+lastName.addEventListener("blur", function() {
+  if (lastName.value == "" || lastName.value.length < 2 || lastName.value.length > 30) { //if empty string or characters are not between 2 and 30
+    errorLastName.style.visibility = "visible";  
+    errorLastName.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du nom et jusqu'à 30 caractères.";
+    lastName.focus();
+    return false;
+  }
+  
+  if (!patternText.test(lastName.value)) {  //if the user types a wrong character
+    errorLastName.style.visibility = "visible";  
+    errorLastName.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
+    lastName.focus(); 
+    return false;
+  } 
+  
+  if (!(lastName.value == "" || lastName.value.length < 2) && patternText.test(lastName.value)) {
+    errorLastName.style.visibility = "hidden";  
+    errorLastName.innerHTML = "";   //cancel error message
+  }
+});
+
+
+/*** Controls the submit button ***/
 submitBtn.addEventListener("click", function(e) { 
-  if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) { //if empty string or characters are between 2 and 30
-    errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
+  if (firstName.value == "" || firstName.value.length < 2 || firstName.value.length > 30) { //if empty string or characters are not between 2 and 30
+    errorFirstName.style.visibility = "visible";  
+    errorFirstName.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du prénom et jusqu'à 30 caractères.";
     firstName.focus();
     e.preventDefault();
-  } else if (!patternText.test(firstName.value)) {  //if the user types a wrong character
-    errorMessage.style.visibility = "visible";  
-    errorMessage.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
+    return false;
+  }
+  
+  if (!patternText.test(firstName.value)) {  //if the user types a wrong character
+    errorFirstName.style.visibility = "visible";  
+    errorFirstName.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
     firstName.focus();
     e.preventDefault();
-  } else {  //display the modal thanks
-    console.log(patternText.test(firstName.value));
+    return false;
+  }
+  
+  if (!(firstName.value == "" || firstName.value.length < 2) && patternText.test(firstName.value)) {
+    errorFirstName.style.visibility = "hidden";  
+    errorFirstName.innerHTML = "";   //cancel error message
+  }
+  
+  if (lastName.value == "" || lastName.value.length < 2 || lastName.value.length > 30) { //if empty string or characters are not between 2 and 30
+    errorLastName.style.visibility = "visible";  
+    errorLastName.innerHTML = "Veuillez entrer au moins 2 caractères pour le champ du nom et jusqu'à 30 caractères.";
+    lastName.focus();
+    e.preventDefault();
+    return false;
+  }
+  
+  if (!patternText.test(lastName.value)) {  //if the user types a wrong character
+    errorLastName.style.visibility = "visible";  
+    errorLastName.innerHTML = "Seuls les caractères alphabétiques, les traits d'union et les espaces sont autorisés.";
+    lastName.focus();
+    e.preventDefault();
+    return false;
+  }
+  
+  if (!(lastName.value == "" || lastName.value.length < 2) && patternText.test(lastName.value)) {
+    errorLastName.style.visibility = "hidden";  
+    errorLastName.innerHTML = "";   //cancel error message
+  }
+  
+  //---------------------
+  else {  //display the modal thanks
     //   validateForm();
     launchThanks();
     reserveForm.reset();
