@@ -125,7 +125,6 @@ validateName = (field, error, event) => {
     error.style.visibility = "hidden";  
     error.innerHTML = "";   //cancel error message
   }
-  
   return true;
 }
 
@@ -157,7 +156,6 @@ validateEmail = (field, error, event) => {
     error.style.visibility = "hidden";  
     error.innerHTML = "";   //cancel error message
   }
-  
   return true;
 }
 
@@ -182,7 +180,6 @@ validateBirthday = (field, error, event) => {
     error.style.visibility = "hidden";  
     error.innerHTML = "";   //cancel error message
   }
-
   return true;
 }
 
@@ -212,7 +209,6 @@ validateTournamentQty = (field, error, event) => {
     error.style.visibility = "hidden";  
     error.innerHTML = "";   //cancel error message
   }
-
   return true;
 }
 
@@ -237,47 +233,37 @@ validateLocation = (_field, error, event) => {
   return true;
 }
 
+/*** Efface le message d'erreur sous les boutons de check et radio ***/
+clearErrorMessage = (btn, error) => {
+  if(btn.checked) {
+    error.style.visibility = "hidden";  
+    error.innerHTML = "";
+  }
+}
+
 /*** Ecoute des boutons radio des lieux ***/
 newYork.addEventListener("click", () => {
-  if(newYork.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
+  clearErrorMessage(newYork, errorLocation);
 });
 
 sanFrancisco.addEventListener("click", () => {
-  if(sanFrancisco.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
+  clearErrorMessage(sanFrancisco, errorLocation);
 });
 
 seatle.addEventListener("click", () => {
-  if(seatle.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
+  clearErrorMessage(seatle, errorLocation);
 });
 
 chicago.addEventListener("click", () => {
-  if(chicago.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
+  clearErrorMessage(chicago, errorLocation);
 });
 
 boston.addEventListener("click", () => {
-  if(boston.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
+  clearErrorMessage(boston, errorLocation);
 });
 
 porland.addEventListener("click", () => {
-  if(porland.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
+  clearErrorMessage(porland, errorLocation);
 });
 
 
@@ -297,10 +283,7 @@ validateAgreement = (_field, error, event) => {
 
 /**Ecoute du check d'accord des conditions ***/
 agree.addEventListener("click", () => {
-  if(agree.checked) {
-    errorAgreement.style.visibility = "hidden";  
-    errorAgreement.innerHTML = "";
-  }
+  clearErrorMessage(agree, errorAgreement);
 });
 
 
@@ -333,7 +316,7 @@ validateForm = () => {
   const accord = agree.checked;
   const prochainsEvts = nextEvents.checked;
 
-  console.log("Prénom :"+prenom);
+  console.log("Prénom: "+prenom);
   console.log("Nom: "+nom);
   console.log("E-mail: "+adrEmail);
   console.log("Anniversaire: "+anniversaire);
