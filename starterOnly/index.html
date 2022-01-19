@@ -60,7 +60,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+            
               id="reserve-form"
             >
               <div
@@ -72,7 +72,8 @@
                   id="first"
                   name="first"
                   minlength="2"
-                  maxlength="31"
+                  maxlength="30"
+                  placeholder="Entrez votre prénom entre 2 et 30 caractères"
                   
                 />
                 <span class="error" id="error-fname"></span>
@@ -86,7 +87,8 @@
                   id="last"
                   name="last"
                   minlength="2"
-                  maxlength="31"
+                  maxlength="30"
+                  placeholder="Entrez votre nom entre 2 et 30 caractères"
                 />
                 <span class="error" id="error-lname"></span>
               </div>
@@ -98,8 +100,8 @@
                   type="email"
                   id="email"
                   name="email"
-                  maxlength="81"
-                  
+                  maxlength="80"
+                  placeholder="Entrez une adresse E-mail valide"
                 />
                 <span class="error" id="error-email"></span>
               </div>
@@ -206,13 +208,13 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
+                <span class="error" id="error-agreement"></span>
                 <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
                 </label>
-                <span class="error" id="error-agreement"></span>
                 <br>
               </div>
               <input
