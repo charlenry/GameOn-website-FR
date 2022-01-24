@@ -14,7 +14,7 @@ body {
  /* margin: 0; */
   display: flex;
   flex-direction: column;
- /* background-image: url("background.png"); ***image not found in the root folder*** */ 
+ /* background-image: url("background.png"); ***image non trouvé dans le dossier racine *** */ 
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -228,7 +228,7 @@ main {
   font-size: 20px;
   height: 600px;
 }
-/*------- End of modal thanks -------*/
+/*------- Fin de modal thanks -------*/
 
 label {
   font-family: var(--font-default);
@@ -568,7 +568,7 @@ footer {
 }
 
 
-/* Solution of the responsive problem */
+/* Solution aux erreurs d'affichage mobile */
 /* Charles-Henri SAINT-MARS */
 @media screen and (max-width: 460px) {
   .hero-headline {
@@ -632,25 +632,23 @@ footer {
     width: 220px;
   }
 }
-/* End of the solution of the responsive problem */
+/* Fin de la solution aux erreurs d'affichage mobile */
 
-/* Error banner */
+/* Bannière d'erreur */
 /* Charles-Henri SAINT-MARS */
 .error {
-  font-size: 14px;
-/*  word-spacing: 0px;*/
-  line-height: 1.1;
-  color: #D8000C;
-  background-color: #FFBABA;
-  display: block;
-  padding: 3px 5px;
-  width: 100%;
+  font-size: 13px;
   visibility: hidden;
-  position: absolute;
-  border-radius: 3px; 
-  z-index: 1;
+  color: #FF4E60;
+  line-height: 1.2;
+  display: block;
 }
-/* End of error banner */
+
+#error-agreement {
+  display: inline;
+}
+/* Fin de bannière erreur */
+
 
 @keyframes modalopen {
   from {
