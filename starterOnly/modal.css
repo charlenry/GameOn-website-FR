@@ -528,7 +528,11 @@ footer {
   margin: 0 20px;
 }
 
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 810px) {  /*** changement de 800px à 810px pour les iPads ***/
+  .main-navbar span {  /*** adaptation pour le menu ***/
+    font-size: 92%;
+  }
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -551,7 +555,7 @@ footer {
   .hero-text {
     width: unset;
     font-size: 1.5rem;
-  }
+  }  
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
@@ -564,7 +568,7 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
-  }
+  }  
 }
 
 
@@ -585,6 +589,24 @@ footer {
   }
 }
 
+@media screen and (max-width: 428px) {
+  .hero-headline {
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 500px;
+  }
+  .hero-text {
+    width: 440px;
+    font-size: 1.3rem;
+  }
+  .bground {
+    width: 98%;
+  }
+  .text-thanks {
+    font-size: 23px;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .hero-headline {
     font-size: 2.6rem;
@@ -600,6 +622,69 @@ footer {
   }
 }
 
+@media screen and (max-width: 414px) {
+  .hero-headline {
+    font-size: 2.4rem;
+    font-weight: bold;
+    width: 380px;
+  }
+  .hero-text {
+    width: 350px;
+    font-size: 1.3rem;
+  }
+  .text-thanks {
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .hero-headline {
+    font-size: 2.4rem;
+    font-weight: bold;
+    width: 380px;
+  }
+  .hero-text {
+    width: 350px;
+    font-size: 1.3rem;
+  }
+  .text-thanks {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .hero-headline {
+    font-size: 2.3rem;
+    font-weight: bold;
+    width: 380px;
+  }
+  .hero-text {
+    width: 350px;
+    font-size: 1.2rem;
+  }
+  .bground {
+    width: 98%;
+  }
+  .text-thanks {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .hero-headline {
+    font-size: 2.2rem;
+    font-weight: bold;
+    width: 380px;
+  }
+  .hero-text {
+    width: 350px;
+    font-size: 1.2rem;
+  }
+  .text-thanks {
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .hero-headline {
     font-size: 2.2rem;
@@ -612,6 +697,21 @@ footer {
   }
   .text-thanks {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .hero-headline {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 300px;
+  }
+  .hero-text {
+    width: 310px;
+    font-size: 1.1rem;
+  }
+  .text-thanks {
+    font-size: 18px;
   }
 }
 
@@ -648,6 +748,11 @@ footer {
   display: inline;
 }
 /* Fin de bannière erreur */
+
+/*** Taille du placeholder ***/
+::placeholder {
+  font-size: 70%;
+}
 
 
 @keyframes modalopen {
