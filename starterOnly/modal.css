@@ -449,10 +449,15 @@ input[data-error]::after {
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
- /* white-space: nowrap; */
-  word-spacing: -2px;
+  font-size: 17px;
+  word-spacing: -1.6px;
+  padding-top: 5px;  /* Ajout */
+  /* white-space: nowrap; */
 }
+p.text-label {   /* Ajout */
+  padding: 5px 0 0 0;
+}
+
 .hero-section {
   min-height: 93vh;
   border-radius: 10px;
@@ -584,6 +589,9 @@ footer {
     width: 500px;
     font-size: 1.5rem;
   }
+  .bground {
+    width: 99%;
+  }
   .text-thanks {
     font-size: 25px;
   }
@@ -598,9 +606,6 @@ footer {
   .hero-text {
     width: 440px;
     font-size: 1.3rem;
-  }
-  .bground {
-    width: 98%;
   }
   .text-thanks {
     font-size: 23px;
@@ -635,6 +640,9 @@ footer {
   .text-thanks {
     font-size: 21px;
   }
+  #error-agreement.error {
+    padding-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 412px) {
@@ -662,11 +670,11 @@ footer {
     width: 350px;
     font-size: 1.2rem;
   }
-  .bground {
-    width: 98%;
-  }
   .text-thanks {
     font-size: 20px;
+  }
+  #error-agreement.error {
+    padding-bottom: 10px;
   }
 }
 
@@ -683,6 +691,9 @@ footer {
   .text-thanks {
     font-size: 20px;
   }
+  #error-agreement.error {
+    padding-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -697,6 +708,9 @@ footer {
   }
   .text-thanks {
     font-size: 20px;
+  }
+  #error-agreement.error {
+    padding-bottom: 10px;
   }
 }
 
@@ -731,6 +745,12 @@ footer {
   img {
     width: 220px;
   }
+  #error-location.error {
+    padding-bottom: 10px;
+  }
+  .copyrights {
+    font-size: 15px;
+  }
 }
 /* Fin de la solution aux erreurs d'affichage mobile */
 
@@ -742,10 +762,8 @@ footer {
   color: #FF4E60;
   line-height: 1.2;
   display: block;
-}
-
-#error-agreement {
-  display: inline;
+  padding-top: 2px;
+  /* padding-bottom: 2px; */
 }
 /* Fin de bannière erreur */
 

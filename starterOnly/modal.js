@@ -45,8 +45,8 @@ let chosenLocation = "";
 /* Caractères unicode: À, É, Ä, Ç, È, É, Ê, Ë, Î, Ï, Ô, Ö, Ù, Û, Ü, à, á, â, ä, æ, ç, è, é, ê, ë, ï, ô, ö, ù, û */
 /* unicodeCars = \u00c0-\u00c2\u00c4\u00c6-\u00cf\u00d4\u00d6\u00d9-\u00dc\u00e0-\u00f6\u00f9-\u00fc; */
 
-const patternText = /^[^<>()[\]\\,.;:\s@&%|"'`_0-9]+$/;
-const patternEmail = /^(([^<>()[\]\\,.;:\s@&%|"'`]+)(\.[^^<>()[\]\\,.;:\s@&%|"'`]+)*)@(([a-zA-Z\-0-9_]+\.)+[a-zA-Z]{2,})$/;
+const patternText = /^[^<>(){}[\]\\,.;:\s@&%!?§*$£µ~#^+=|"'`_0-9]+$/;
+const patternEmail = /^(([^<>(){}[\]\\,.;:\s@&%!?§*$£µ~#^+=|"'`]+)(\.[^^<>(){}[\]\\,.;:\s@&%!?§*$£µ~#^+=|"'`]+)*)@(([a-zA-Z\-0-9_]+\.)+[a-zA-Z]{2,})$/;
 const patternBirthday = new RegExp("^\d{2}/\d{2}/\d{4}$", "");
 const patternNumber = /^\d{1,2}$/;
 
@@ -317,7 +317,6 @@ locationArray.forEach((btn) => btn.addEventListener("click", clearErrorMessage))
 
 clearErrorMessage = (btn, error) => {
   if(btn.checked) {
-    error.style.display = "inline";
     error.style.visibility = "hidden";  
     error.innerHTML = "";
   }
@@ -352,13 +351,11 @@ porland.addEventListener("click", () => {
 /*** Validation de l'accord des conditions ***/
 validateAgreement = (_field, error, event) => {
   if (agree.checked == false) {
-    error.style.display = "block";
     error.style.visibility = "visible";  
     error.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
     event.preventDefault();
     return false;
   } else {
-    error.style.display = "inline";
     error.style.visibility = "hidden";  
     error.innerHTML = "";
   }
@@ -392,6 +389,7 @@ submitBtn.addEventListener("click", (e) => {
     launchThanks();  //display the modal thanks
     clearGreenBorder();
     reserveForm.reset();  //reset the form
+    chosenLocation = "";
     e.preventDefault();   //prevent the modal thanks to close automatically
   }
    
