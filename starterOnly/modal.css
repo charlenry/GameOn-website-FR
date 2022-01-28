@@ -585,6 +585,7 @@ footer {
     font-weight: bold;
     width: 400px;
   }
+}
 
 @media screen and (max-width: 460px) {
   .hero-headline {
