@@ -210,14 +210,24 @@ birthday.addEventListener("input", () => {
 /*** Fonction de validation de la date de naissance ***/
 validateBirthday = (field, error, event) => {
  // const patternBirthdayResult = patternBirthday.test(field.value.toString());
+ const birthValue = birthday.value;
+ const birthDate = new Date(birthValue);
+ const today = new Date();
   
   if (field.value == "" || field.value.length != 10) { 
-  error.style.visibility = "visible";  
-  error.innerHTML = "Veuillez entrer votre date de naissance au format JJ/MM/AAAA.";
-  field.style.border = "2px solid #FF4E60";
-  field.focus();
-  event.preventDefault();
-  return false;
+    error.style.visibility = "visible";  
+    error.innerHTML = "Veuillez entrer votre date de naissance au format JJ/MM/AAAA.";
+    field.style.border = "2px solid #FF4E60";
+    field.focus();
+    event.preventDefault();
+    return false;
+  } else if (birthDate >= today.setDate(today.getDate()-1)) {
+    error.style.visibility = "visible";  
+    error.innerHTML = "Veuillez entrer une date antérieure à aujourd'hui.";
+    field.style.border = "2px solid #FF4E60";
+    field.focus();
+    event.preventDefault();
+    return false;
   } else {
     error.style.visibility = "hidden";  
     error.innerHTML = "";   //cancels error message
@@ -233,7 +243,11 @@ birthday.addEventListener("blur", () => {
 
 /*** Fonction de contrôle de la date de naissance en sortie du champ ***/
 validateBirthdayOnBlur = (field) => {
-  if (field.value != "" && field.value.length == 10) {
+  const birthValue = birthday.value;
+  const birthDate = new Date(birthValue);
+  const today = new Date();
+
+  if (field.value != "" && field.value.length == 10 && today.setDate(today.getDate()-1) > birthDate) {
     field.style.border = "2px solid #279e7a";
   }
 }
@@ -305,46 +319,14 @@ validateLocation = (_field, error, event) => {
   return true;
 }
 
-/*** Efface le message d'erreur sous les boutons de check et radio ***/
-/* function clearErrorMessage(btn) {
-  if(btn.checked) {
-    errorLocation.style.visibility = "hidden";  
-    errorLocation.innerHTML = "";
-  }
-}
-
-locationArray.forEach((btn) => btn.addEventListener("click", clearErrorMessage)); */
-
-clearErrorMessage = (btn, error) => {
-  if(btn.checked) {
-    error.style.visibility = "hidden";  
-    error.innerHTML = "";
-  }
-}
-
-/*** Ecoute des boutons radio des lieux ***/
-newYork.addEventListener("click", () => {
-  clearErrorMessage(newYork, errorLocation);
-});
-
-sanFrancisco.addEventListener("click", () => {
-  clearErrorMessage(sanFrancisco, errorLocation);
-});
-
-seatle.addEventListener("click", () => {
-  clearErrorMessage(seatle, errorLocation);
-});
-
-chicago.addEventListener("click", () => {
-  clearErrorMessage(chicago, errorLocation);
-});
-
-boston.addEventListener("click", () => {
-  clearErrorMessage(boston, errorLocation);
-});
-
-porland.addEventListener("click", () => {
-  clearErrorMessage(porland, errorLocation);
+/*** Efface le message d'erreur sous les boutons radio ***/
+locationArray.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if(btn.checked) {
+      errorLocation.style.visibility = "hidden";  
+      errorLocation.innerHTML = "";
+    }
+  });
 });
 
 
@@ -362,11 +344,16 @@ validateAgreement = (_field, error, event) => {
   return true;
 }
 
-/**Ecoute du check d'accord des conditions ***/
+/**Efface le message d'erreur si le bouton agree est coché ***/
 agree.addEventListener("click", () => {
-  clearErrorMessage(agree, errorAgreement);
+  if(agree.checked) {
+    errorAgreement.style.visibility = "hidden";  
+    errorAgreement.innerHTML = "";
+  }
 });
 
+
+/*** Enlève les bordures vertes des champs ***/
 clearGreenBorder = () => {
   firstName.style.border = "";
   lastName.style.border = "";
