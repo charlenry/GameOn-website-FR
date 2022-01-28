@@ -534,7 +534,7 @@ footer {
 }
 
 
-@media screen and (max-width: 810px) {  /*** changement de 800px à 810px pour les iPads ***/
+@media screen and (max-width: 992px) {  /*** changement de 800px à 992px pour les tablettes ***/
   .main-navbar span {  /*** adaptation pour le menu ***/
     font-size: 92%;
   }
