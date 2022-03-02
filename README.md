@@ -1,5 +1,2 @@
 # Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+1.Ce projet consiste à ajouter le code JavaScript manquant pour que le formulaire soit pleinement fonctionnel: fermeture du modal du formulaire, contrôle et validation des champs, modal de succès si les données saisies sont conformes aux critères de validation, correction d'erreurs d'affichage en version mobile.
