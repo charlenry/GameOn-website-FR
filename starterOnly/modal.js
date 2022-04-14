@@ -45,7 +45,7 @@ let chosenLocation = "";
 /* Caractères unicode: À, É, Ä, Ç, È, É, Ê, Ë, Î, Ï, Ô, Ö, Ù, Û, Ü, à, á, â, ä, æ, ç, è, é, ê, ë, ï, ô, ö, ù, û */
 /* unicodeCars = \u00c0-\u00c2\u00c4\u00c6-\u00cf\u00d4\u00d6\u00d9-\u00dc\u00e0-\u00f6\u00f9-\u00fc; */
 
-const patternText = /^[^<>(){}[\]\\,.;:\s@&%!?§*$£µ~#^+=|"'`_0-9]+$/;
+const patternText = /^[^<>(){}[\]\\,.;:@&%!?§*$£µ~#^+=|"'`_0-9]+$/;
 const patternEmail = /^(([^<>(){}[\]\\,.;:\s@&%!?§*$£µ~#^+=|"'`]+)(\.[^^<>(){}[\]\\,.;:\s@&%!?§*$£µ~#^+=|"'`]+)*)@(([a-zA-Z\-0-9_]+\.)+[a-zA-Z]{2,})$/;
 const patternBirthday = new RegExp("^\d{2}/\d{2}/\d{4}$", "");
 const patternNumber = /^\d{1,2}$/;
