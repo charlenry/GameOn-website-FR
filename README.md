@@ -1,4 +1,2 @@
 # Projet GameOn
-Ce projet consiste à ajouter le code JavaScript manquant pour que le formulaire soit pleinement fonctionnel: 
-fermeture du modal du formulaire, contrôle et validation des champs, modal de succès si les données saisies sont conformes 
-aux critères de validation, correction d'erreurs d'affichage en version mobile.
+Pour le contexte, j'ai été récemment embauché comme Développeur Front-End junior dans une PME, GameOn, spécialisée dans les conférences et les concours de jeux. Un précédent développeur avait commencé à développer un formulaire d'inscription pour un concours de jeux à partir de maquettes Figma. Mais ce développeur a été affecté à un autre projet. Ma mission consiste à ajouter le code JavaScript manquant pour que le formulaire soit pleinement fonctionnel: fermeture de la modale du formulaire, contrôle et validation des champs, création de la modale de succès si les données saisies sont conformes aux critères de validation. Je dois aussi corriger des erreurs d'affichage pour la version mobile.
