@@ -68,11 +68,19 @@ img {
   display: none;
 }
 
+/* ajouté */
+.topnav .fa-bars {
+  color:  #ff0000;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+    /* ajouté */
+    background-color: #fff;
+    border-radius: 15px;
   }
 }
 
@@ -82,11 +90,15 @@ img {
     position: absolute;
     right: 0;
     top: 0;
+    background-color: #ff0000;
   }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
+  }
+  .topnav.responsive .fa-bars {
+    color:  #ffffff;
   }
 }
 
